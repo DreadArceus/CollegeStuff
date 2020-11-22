@@ -4,7 +4,6 @@
 using namespace std;
 
 bool bad = false;
-// bool dump;
 bool validityCheck(vector<vector<int>> m)
 {
     for(auto x : m)
@@ -51,6 +50,7 @@ vector<vector<int>> recurse(vector<vector<int>> m, int x, int y, int num, vector
         }
         moves = memoryAbuse;
     /*  Testing
+        bool dump;
         cin >> dump;
         for(int i = 0; i < m.size(); i++)
         {
@@ -81,16 +81,15 @@ vector<vector<int>> recurse(vector<vector<int>> m, int x, int y, int num, vector
     if(!validityCheck(m))
     {
         bad = true;
-    /*  Testing
-        cin >> dump;
+        system("clear");
         for(vector<int> v : m)
         {
-            for(int i : v) //for(int i = 0; i < v.size(); i++)
+            for(int i : v)
             {
-                cout << i << " "; //v[i]
+                cout << i << " ";
             }
             cout << "\n";
-        } */
+        }
     }
     return m;
 }
