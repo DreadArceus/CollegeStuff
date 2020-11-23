@@ -51,7 +51,7 @@ int getPossi(int x, int y, vector<vector<int>> m, vector<pii> moves)
 vector<vector<int>> recurse(vector<vector<int>> m, int x, int y, int num, vector<pii> moves)
 {
     // Time check
-    if(time(0) - tStart == 4)
+    if(time(0) - tStart == 2)
     {
         return {{0}};
     }
@@ -104,7 +104,8 @@ vector<vector<int>> getKnightsMoves(int n, int x, int y)
 
 int main()
 {
-    int n = 8;
+    int n = 0;
+    cin >> n;
     vector<pii> timed;
     vector<pair<pii, pii>> paths;
     for(int i = 0; i < n; i++)
@@ -125,7 +126,7 @@ int main()
             {
                 for(int y = 0; y < m.size(); y++)
                 {
-                    if(m[x][y] == 63)
+                    if(m[x][y] == m.size() * m.size() - 1)
                     {
                         paths[paths.size() - 1].second = {x, y};
                     }
@@ -175,12 +176,12 @@ int main()
             if(loopBoard[i][j] == num)
             {
                 num++;
-                cout << "{" << i << ", " << j << "}" << ((num == 64) ? "" : ",") << ((num > 0 && num % 8 == 0) ? "" : " ");
+                cout << "{" << i << ", " << j << "}" << ((num == n*n) ? "" : ",") << ((num > 0 && num % n == 0) ? "" : " ");
                 i = -1;
                 break;
             }
         }
-        if(i == -1 && num > 7 && num % 8 == 0 && num != 64)
+        if(i == -1 && num > n - 1 && num % n == 0 && num != n*n)
         {
             cout << "\n";
         }
